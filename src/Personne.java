@@ -3,7 +3,6 @@ abstract class Personne {
     private String nom;
     private String prenom;
     private String email;
-
     public int getId() {
         return id;
     }
@@ -42,7 +41,11 @@ abstract class Personne {
         this.prenom = prenom;
         this.email = email;
     }
-    public Personne(){}
-    public abstract void afficherInfos();
+    public Personne(String nom, String prenom, String email){
+
+    }
+    public Personne(){
+
+    }
 
 }

@@ -1,13 +1,14 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Formateur extends Personne {
     private double salaire;
     private String specialite;
-    private String Class;
     private Scanner scanner=new Scanner(System.in);
-    public Formateur(int id,String nom,String prenom,String email) {
+    public ArrayList<Formateur> formateurs = new ArrayList<Formateur>();
+
+    public Formateur(int id,String nom,String prenom,String email,String specialite,double salaire) {
         super(id, nom, prenom, email);
         this.salaire = salaire;
-        this.Class = Class;
         this.specialite = specialite;
     }
     public double getSalaire() {
@@ -22,21 +23,25 @@ public class Formateur extends Personne {
     public void setSpecialite(String specialite) {
         this.specialite = specialite;
     }
-    public void setClass(String Class) {
-        Class = Class;
-    }
-
     public Scanner getScanner() {
         return scanner;
     }
-
     public void setScanner(Scanner scanner) {
         this.scanner = scanner;
     }
-
+    public Formateur(){}
     public void ajouterunformateur(){
+        System.out.println("id:");
+        int id= scanner.nextInt();
+        scanner.nextLine();
         System.out.println("nom de formateur:");
         String nom=scanner.nextLine();
+        scanner.nextLine();
+        System.out.println("prenom de formateur:");
+        String prenom=scanner.nextLine();
+        scanner.nextLine();
+        System.out.println("Email de formateur:");
+        String Email=scanner.nextLine();
         scanner.nextLine();
         System.out.println("spécialté de formateur:");
         String specialite=scanner.nextLine();
@@ -44,10 +49,8 @@ public class Formateur extends Personne {
         System.out.println("salaire mensuel de formatuer:");
         double salaire= scanner.nextDouble();
         scanner.nextLine();
-        this.setNom(nom);
-        this.setSpecialite(specialite);
-        this.setSalaire(salaire);
         System.out.println("formateur ajouter avec succés");
+        Formateur formateur=new Formateur(id,nom,prenom,Email,specialite,salaire);
     }
     public void afficherInfos() {
         System.out.println("Id:"+getId());
@@ -57,12 +60,36 @@ public class Formateur extends Personne {
         System.out.println("Salaire"+getSalaire());
         System.out.println("Spécialité"+getSpecialite());
     }
+    public void modifierformateur(){
+    }
+    public void supprimerformateur(){
+
+    }
     public  void gestiondesformateurs() {
+        int ch ;
         System.out.println("1. Ajout d’un formateur");
         System.out.println("2. Association d’un formateur à une classe");
         System.out.println("3. Modification des informations d’un formateur");
         System.out.println("4. Suppression d’un formateur");
         System.out.println("5. Affichage des formateurs");
+        System.out.println("choisi votre choix:");
+        ch=scanner.nextInt();
+        switch (ch){
+            case 1:
+                ajouterunformateur();
+                break;
+            case 2:
+                afficherInfos();
+                break;
+            case 3:
+                modifierformateur();
+                break;
+            case 4:
+                supprimerformateur();
+                break;
+
+
+        }
     }
 }
 
