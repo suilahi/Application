@@ -3,6 +3,7 @@ abstract class Personne {
     private String nom;
     private String prenom;
     private String email;
+
     public int getId() {
         return id;
     }
@@ -45,6 +46,9 @@ abstract class Personne {
 
     }
     public Personne(){
+
+    }
+    public void afficher(){
 
     }
 

@@ -12,7 +12,6 @@ public class Apprenant extends Personne {
         //this.Class = Class;
         this.numerotelephone = numerotelephone;
     }
-
     public Apprenant() {
     }
 
@@ -53,8 +52,8 @@ public class Apprenant extends Personne {
         apprenants.add(apprenant);
 
     }
-
-    public void afficherapprenant(){
+    @Override
+    public void afficher(){
         for (Apprenant apprenant : apprenants){
             System.out.println("id: "+apprenant.getId()+
             "Nom : " + apprenant.getNom()+
@@ -64,13 +63,13 @@ public class Apprenant extends Personne {
         }
     }
     public void modifierapprenant() {
-        System.out.println("entrer l'id de l'apprenant à suprimer:");
+        System.out.println("entrer l'id de l'apprenant à modifier:");
         int id = scanner.nextInt();
         scanner.nextLine();
         for (Apprenant apprenant : apprenants) {
             if (apprenant.getId() == id) {
                 System.out.println("apprenant trouvé!");
-                apprenant.afficherapprenant();
+                apprenant.afficher();
                 System.out.println("nouveau nom");
                 String nouveauNom = scanner.nextLine();
                 System.out.println("nouveau prenom:");
@@ -123,7 +122,7 @@ public class Apprenant extends Personne {
                 ajouterapprenant();
                 break;
             case 2:
-                afficherapprenant();
+                afficher();
                 break;
             case 3:
                 modifierapprenant();
