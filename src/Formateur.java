@@ -52,7 +52,7 @@ public class Formateur extends Personne {
         System.out.println("formateur ajouter avec succés");
         Formateur formateur=new Formateur(id,nom,prenom,Email,specialite,salaire);
     }
-    public void afficherInfos() {
+    public void afficherformateurs() {
         System.out.println("Id:"+getId());
         System.out.println("Nom:"+getNom());
         System.out.println("Prenom"+getPrenom());
@@ -61,17 +61,40 @@ public class Formateur extends Personne {
         System.out.println("Spécialité"+getSpecialite());
     }
     public void modifierformateur(){
+        System.out.println("entrer id a modifier:");
+        int id=scanner.nextInt();
+        scanner.nextLine();
+            for (Formateur formateur:formateurs){
+                if(formateur.getId()==id){
+                    System.out.println("formateur trouver!!");
+                    formateur.afficherformateurs();
+                    System.out.println("nouveau nom:");
+                    String nouveauNom=scanner.nextLine();
+                    System.out.println("nouveau prenom:");
+                    String nouveauPrenom = scanner.nextLine();
+                    System.out.println("nouveau Email:");
+                    String nouveauEmail = scanner.nextLine();
+
+                    formateur.setNom(nouveauNom);
+                    formateur.setPrenom(nouveauPrenom);
+                    formateur.setEmail(nouveauEmail);
+
+
+                    System.out.println("formateur modifié!");
+                }
+            }
+        System.out.println("formateur introuvable!");
     }
+
     public void supprimerformateur(){
 
     }
     public  void gestiondesformateurs() {
         int ch ;
         System.out.println("1. Ajout d’un formateur");
-        System.out.println("2. Association d’un formateur à une classe");
+        System.out.println("2. Affichage des formateurs");
         System.out.println("3. Modification des informations d’un formateur");
         System.out.println("4. Suppression d’un formateur");
-        System.out.println("5. Affichage des formateurs");
         System.out.println("choisi votre choix:");
         ch=scanner.nextInt();
         switch (ch){
@@ -79,7 +102,7 @@ public class Formateur extends Personne {
                 ajouterunformateur();
                 break;
             case 2:
-                afficherInfos();
+                afficherformateurs();
                 break;
             case 3:
                 modifierformateur();
@@ -87,8 +110,6 @@ public class Formateur extends Personne {
             case 4:
                 supprimerformateur();
                 break;
-
-
         }
     }
 }

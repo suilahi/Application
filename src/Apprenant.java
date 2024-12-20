@@ -1,3 +1,4 @@
+import javax.xml.transform.Source;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Apprenant extends Personne {
@@ -48,7 +49,7 @@ public class Apprenant extends Personne {
         String email = scanner.nextLine();
         System.out.println("num tele: ");
         long numPhone=scanner.nextLong();
-        Apprenant apprenant = new Apprenant(id,nom,prenom,email,numPhone);
+        Apprenant apprenant = new Apprenant(id ,nom, prenom, email, numPhone);
         apprenants.add(apprenant);
 
     }
@@ -63,9 +64,51 @@ public class Apprenant extends Personne {
         }
     }
     public void modifierapprenant() {
+        System.out.println("entrer l'id de l'apprenant à suprimer:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        for (Apprenant apprenant : apprenants) {
+            if (apprenant.getId() == id) {
+                System.out.println("apprenant trouvé!");
+                apprenant.afficherapprenant();
+                System.out.println("nouveau nom");
+                String nouveauNom = scanner.nextLine();
+                System.out.println("nouveau prenom:");
+                String nouveauPrenom = scanner.nextLine();
+                System.out.println("nouveau Email:");
+                String nouveauEmail = scanner.nextLine();
+                System.out.println("nouveau num tele:");
+                long nouveauTelephone = scanner.nextInt();
+                scanner.nextLine();
+
+                apprenant.setNom(nouveauNom);
+                apprenant.setPrenom(nouveauPrenom);
+                apprenant.setEmail(nouveauEmail);
+                apprenant.setNumerotelephone(nouveauTelephone);
+
+                System.out.println("apprenant modifié!");
+            }
+        }
+        System.out.println("apprenant introuvable!");
     }
-    public void supprimerapprenant(){
-    }
+
+    public void supprimerapprenant() {
+        System.out.println("entrer l'id à supprimer:");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        Apprenant appsupprimer = null;
+        for (Apprenant apprenant : apprenants) {
+            if (apprenant.getId() == id) {
+                appsupprimer = apprenant;
+            }}
+        if (appsupprimer!=null){
+            apprenants.remove(appsupprimer);
+            System.out.println("apprenant supprimer avec succés");}
+      else {
+           System.out.println("apprenant introuvable!!");
+        }
+        }
+
     public  void gestiondesapprenant() {
         int choix;
         System.out.println("  menu apprenant ");
