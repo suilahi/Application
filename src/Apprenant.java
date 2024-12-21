@@ -23,12 +23,6 @@ public class Apprenant extends Personne {
         this.apprenants = apprenants;
     }
 
-    public Scanner getScanner() {
-        return scanner;
-    }
-    public void setScanner(Scanner scanner) {
-        this.scanner = scanner;
-    }
     public long getNumerotelephone() {
         return numerotelephone;
     }
@@ -70,7 +64,7 @@ public class Apprenant extends Personne {
             if (apprenant.getId() == id) {
                 System.out.println("apprenant trouvé!");
                 apprenant.afficher();
-                System.out.println("nouveau nom");
+                System.out.println("nouveau nom:");
                 String nouveauNom = scanner.nextLine();
                 System.out.println("nouveau prenom:");
                 String nouveauPrenom = scanner.nextLine();

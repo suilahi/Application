@@ -8,7 +8,7 @@ public class Application {
     public  static void main(String[] args) {
         Apprenant apprenant=new Apprenant();
         Formateur formateur=new Formateur();
-        Class classe =new Class();
+        Classe classe= new Classe();
         int choix;
 
         do {
@@ -28,14 +28,16 @@ public class Application {
                     formateur.gestiondesformateurs();
                     break;
                 case 3:
-
+                    classe.gestiondesclasses();
                     break;
                 case 4:
+                    System.out.println("quitter" );
                     break;
+
 
             }
         }
             while (choix != 4) ;
-            System.out.println("choix invalide");
+            System.out.println("Au revoir");
         }
     }
